@@ -24,25 +24,45 @@
 
 <p>Pilot the AR.Drone 2.0 directly from your browser. Extend the application with plugins
 to add features such as video recording, autonomous flight, face recognition, and more.
-It makes it a very friendly environment to quickly build and experiment with your drone 
-(e.g. during a nodecopter event).</p>
+It makes it a very friendly environment to quickly build and experiment with your drone
+(e.g. during a <a href="http://nodecopter.com">nodecopter</a> event).</p>
 
 <p>If you encounter an issue; please submit it to the issue tracker! You can also catch
 up with me (eschnou) on twitter or on #freenode (channel #nodecopter).</p>
 
-<p><strong>This branch is the development branch, there are no packaged release yet.</strong> </p>
+<p><strong>This branch is the development branch, there are no packaged release yet.</strong></p>
 
 <h2>
 <a id="built-in-plugins" class="anchor" href="#built-in-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Built-in plugins</h2>
 
 <ul>
-<li><p><strong><a href="plugins/video-png/">video-png</a></strong> stream the video to the browser through static image loading, 
-works great in every browser.</p></li>
-<li><p><strong><a href="plugins/video-stream/">video-stream</a></strong> use <a href="https://github.com/bkw/node-dronestream">node-dronestream</a> to stream the raw h264 video 
+<li><p><strong><a href="plugins/video-png/">video-png</a></strong> stream the video to the browser through static image loading,
+works great in every browser. Requires ffmpeg installed on your system.</p></li>
+<li><p><strong><a href="plugins/video-stream/">video-stream</a></strong> use <a href="https://github.com/bkw/node-dronestream">node-dronestream</a> to stream the raw h264 video
 feed via webscokets and rendering in Javascript !!! Need a modern browser and CPU.</p></li>
-<li><p><strong><a href="plugins/hud/">hud</a></strong> to visualize a head-up display with artificial horizon, compass, 
+<li><p><strong><a href="plugins/hud/">hud</a></strong> to visualize a head-up display with artificial horizon, compass,
 altimeter, etc. Based on <a href="https://github.com/bkw/nodecopter-cockpit">nodecopter-cockpit</a></p></li>
 <li><p><strong><a href="plugins/pilot">pilot</a></strong> to control the drone remotely using the keyboard. Based on <a href="https://github.com/functino/drone-browser">drone-browser</a>.</p></li>
+<li><p><strong><a href="plugins/battery">battery</a></strong> display a battery widget in the top bar.</p></li>
+<li><p><strong><a href="plugins/blackbox">blackbox</a></strong> records all mission data (raw video, navdata, etc.) on the disk.</p></li>
+<li><p><strong><a href="plugins/replay">replay</a></strong> replays a mission by injecting the data at the client level. Makes it a very
+friendly tool to code/test/debug when you can't fly. <strong>You need to use video-png for video, not compatible with video-stream yet.</strong></p></li>
+</ul>
+
+<h2>
+<a id="other-plugins" class="anchor" href="#other-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other plugins</h2>
+
+<p>Feel free to add your plugins in this list by editing this page.</p>
+
+<ul>
+<li><p><strong><a href="https://github.com/eschnou/webflight-copterface">copterface</a></strong> detect faces and track them by rotating the drone. 
+A port of the <a href="https://github.com/paulhayes/copterface">copterface</a> project to the webflight environment.</p></li>
+<li><p><strong><a href="https://github.com/wiseman/webflight-traffic">traffic</a></strong> displays live Air traffic from ADS-B data as an augmented reality overlay.</p></li>
+<li><p><strong><a href="https://github.com/wiseman/webflight-gamepad">gamepad</a></strong> controls the drone with a gamepad.</p></li>
+<li><p><strong><a href="https://github.com/bkw/webflight-tracker">tracker</a></strong> track pixels on the videostream by clicking on them.</p></li>
+<li><p><strong><a href="https://github.com/andrew/webflight-trollface">trollface</a></strong> detect faces and overlay trollfaces on top of them.</p></li>
+<li><p><strong><a href="https://github.com/MyifanW/ARdrone-OculusFlight">OculusFlight</a></strong> Controls the drone with Oculus Rift.</p></li>
+<li><p><strong><a href="https://github.com/andrew/webflight-onscreen-keyboard">onscreen-keyboard</a></strong> Adds buttons to the UI for easier control</p></li>
 </ul>
 
 <h2>
@@ -51,7 +71,9 @@ altimeter, etc. Based on <a href="https://github.com/bkw/nodecopter-cockpit">nod
 <p>WebFlight requires a recent nodejs (built and tested with node &gt; 0.10) as well as
 <a href="https://npmjs.org/">npm</a> and <a href="http://bower.io/">bower</a> for dependency management.</p>
 
-<pre><code>git clone git@github.com:eschnou/ardrone-webflight
+<p>In order to use the video-png plugin, you also need ffmpeg installed on your system.</p>
+
+<pre><code>git clone https://github.com/eschnou/ardrone-webflight.git
 cd ardrone-webflight
 npm install
 bower install
@@ -68,30 +90,44 @@ bower install
 <li>Point your browser to http://localhost:3000/</li>
 </ol>
 
-<p>If you have enabled the <strong>pilot</strong> plugin, you can fly the drone with the following keys. Yes, 
-these are azerty bindings :-) If you need qwerty ones, just hack the plugin. I'll need to find 
-a way to provide custome configuration etc.</p>
+<h3>
+<a id="controlling-the-drone" class="anchor" href="#controlling-the-drone" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Controlling the drone</h3>
 
-<p>Use <code>Z, S, Q, D</code> to move front, back and sideways. Use your <code>cursors</code> to go up/down or turn 
+<p>If you have enabled the <strong>pilot</strong> plugin, you can fly the drone with the following keys. You can define your keyboard in the 
+config file. In the plugin, <code>azerty</code> and <code>qwerty</code> keyboards are defined.  Feel free to define others.</p>
+
+<p>Use <code>z, s, q, d</code> to move front, back and sideways. Use your <code>cursors</code> to go up/down or turn
 clockwise/counter clockwise. Use <code>t</code> to takeoff and <code>l</code> for landing.</p>
+
+<p>Use the <code>tab</code> key to toggle acceleration speed slow/fast.</p>
+
+<p>Use the <code>f</code> key to perform a flip in the current direction of movement.</p>
+
+<p>Use the <code>c</code> key to switch the video feed between front/bottom camera.</p>
+
+<p>Use the <code>e</code> key to recover from an emergency after a crash.</p>
+
+<h3>
+<a id="record-a-mission" class="anchor" href="#record-a-mission" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Record a mission</h3>
+
+<p>Just press the <code>r</code> to start recording. A popup alers you when the recording starts. Press <code>r</code> again to stop. Each mission
+is bundled in its own folder.</p>
 
 <h2>
 <a id="adding-your-own-plugin" class="anchor" href="#adding-your-own-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adding your own plugin</h2>
 
-<p>There is no tutorial yet, in the meanwhile, just have a look at the built in plugins, 
-it is faily straightforward. </p>
-
-<p>I would like to maintain a list of user plugins. If you hack something, please let me know
-and I'll add you to the list.</p>
+<p>There is no tutorial yet, in the meanwhile, just have a look at the built in plugins,
+it is faily straightforward.</p>
 
 <h2>
 <a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thanks</h2>
 
-<p>This work is based on the integration of <a href="https://github.com/bkw/nodecopter-cockpit">nodecopter-cockpit</a> 
-and <a href="https://github.com/functino/drone-browser">drone-browser</a>, refactored in a plugin architecture.</p>
-
-<p>Also a big thank you to <a href="https://github.com/felixge">@felixge</a> for his <a href="https://github.com/felixge/node-ar-drone">node-ar-drone</a> library 
-which pushed me into buying a drone and become crazy about these little flying robots!</p>
+<p>This work is based on <a href="http://eschnou.github.io/ardrone-webflight/">@eschnou's integration</a> of <a href="https://github.com/bkw/nodecopter-cockpit">nodecopter-cockpit</a>
+and <a href="https://github.com/functino/drone-browser">drone-browser</a>, refactored in a plugin architecture.
+Thanks to <a href="https://github.com/bkw/">@bkw</a> and <a href="https://github.com/functino">@functino</a> for sharing! Also
+a big thank you to <a href="https://github.com/felixge">@felixge</a> for his <a href="https://github.com/felixge/node-ar-drone">node-ar-drone</a> library
+which pushed me into buying a drone and become crazy about these little flying robots!
+Thanks to <a href="https://github.com/bkw/">@bkw</a> for the project <a href="https://github.com/bkw/webflight-tracker">webflight-tracker plugin</a>!</p>
 
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
