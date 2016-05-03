@@ -9,3 +9,6 @@ bower_components
 _site
 pictures
 temp.js
+config.js~
+.gitignore~
+.gitignore
