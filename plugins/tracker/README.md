@@ -23,6 +23,24 @@ Dependencies
 
 This plugin needs the video-stream to supply the image data. It has to be
 loaded after it.
+If you want to use the video plugin, you will need to install the FFMPEG.
+
+Install FFMPEG
+--------------
+How to Install FFmpeg on Windows
+http://www.wikihow.com/Install-FFmpeg-on-Windows
+
+Download link in https://ffmpeg.zeranoe.com/builds/:
+https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20160322-git-30d1213-win64-static.7z
+
+For Ubuntu:
+http://www.faqforge.com/linux/how-to-install-ffmpeg-on-ubuntu-14-04/
+```
+sudo add-apt-repository ppa:mc3man/trusty-media
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get install ffmpeg
+```
 
 Example config.js:
 ------------------
