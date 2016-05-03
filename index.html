@@ -1,68 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://blockchain.info//Resources/wallet/pay-now-button.js"></script>
-
-    <title>AR.Drone WebFlight</title>
+    <meta charset="UTF-8">
+    <title>AR.Drone WebFlight by cnpcshangbo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">AR.Drone WebFlight</h1>
+      <h2 class="project-tagline">Flying robots in your browser!</h2>
+      <a href="https://github.com/cnpcshangbo/ardrone-webflight" class="btn">View on GitHub</a>
+      <a href="https://github.com/cnpcshangbo/ardrone-webflight/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/cnpcshangbo/ardrone-webflight/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <header>
-      <div class="container">
-        <h1>AR.Drone WebFlight</h1>
-        <h2>Flying robots in your browser!</h2>
-        <a href="https://github.com/eschnou/ardrone-webflight"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
-      </div>
-    </header>
+    <section class="main-content">
+      <h1>
+<a id="ardrone-webflight" class="anchor" href="#ardrone-webflight" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ardrone-webflight</h1>
 
-    <div class="container">
-      <section id="main_content">
+<p>Pilot the AR.Drone 2.0 directly from your browser. Extend the application with plugins
+to add features such as video recording, autonomous flight, face recognition, and more.
+It makes it a very friendly environment to quickly build and experiment with your drone 
+(e.g. during a nodecopter event).</p>
 
-      <p>Pilot the <a href="http://ardrone2.parrot.com/">AR.Drone 2.0</a> directly from your browser. 
-      Extend the application with plugins to add features such as video recording, autonomous flight, 
-      face recognition, and more. It makes it a very friendly environment to quickly build and 
-      experiment with your drone (e.g. during a <a href="http://nodecopter.com/">nodecopter event</a>).</p>
+<p>If you encounter an issue; please submit it to the issue tracker! You can also catch
+up with me (eschnou) on twitter or on #freenode (channel #nodecopter).</p>
 
-      <div class="screenshot">
-        <iframe width="560" height="315" src="http://www.youtube.com/embed/CF4SlwLkIaU" frameborder="0" allowfullscreen></iframe> 
-      </div>
+<p><strong>This branch is the development branch, there are no packaged release yet.</strong> </p>
 
-<h2>Built-in plugins</h2>
+<h2>
+<a id="built-in-plugins" class="anchor" href="#built-in-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Built-in plugins</h2>
 
 <ul>
-<li><p><strong><a href="https://github.com/eschnou/ardrone-webflight/tree/master/plugins/video-png/">video-png</a></strong> stream the video to the browser through static image loading, 
+<li><p><strong><a href="plugins/video-png/">video-png</a></strong> stream the video to the browser through static image loading, 
 works great in every browser.</p></li>
-<li><p><strong><a href="https://github.com/eschnou/ardrone-webflight/tree/master/plugins/video-stream/">video-stream</a></strong> uses <a href="https://github.com/bkw/node-dronestream">node-dronestream</a> to stream the raw h264 video 
-feed via webscokets and rendering in Javascript. Need a modern browser and CPU.</p></li>
-<li><p><strong><a href="https://github.com/eschnou/ardrone-webflight/tree/master/plugins/hud/">hud</a></strong> to visualize a head-up display with artificial horizon, compass, 
+<li><p><strong><a href="plugins/video-stream/">video-stream</a></strong> use <a href="https://github.com/bkw/node-dronestream">node-dronestream</a> to stream the raw h264 video 
+feed via webscokets and rendering in Javascript !!! Need a modern browser and CPU.</p></li>
+<li><p><strong><a href="plugins/hud/">hud</a></strong> to visualize a head-up display with artificial horizon, compass, 
 altimeter, etc. Based on <a href="https://github.com/bkw/nodecopter-cockpit">nodecopter-cockpit</a></p></li>
-<li><p><strong><a href="https://github.com/eschnou/ardrone-webflight/tree/master/plugins/pilot">pilot</a></strong> to control the drone remotely using the keyboard. Based on <a href="https://github.com/functino/drone-browser">drone-browser</a>.</p></li>
-<li><p><strong><a href="https://github.com/eschnou/ardrone-webflight/tree/master/plugins/blackbox">blackbox</a></strong> records all mission data (raw video, navdata, etc.) on the disk.</p></li>
-<li><p><strong><a href="https://github.com/eschnou/ardrone-webflight/tree/master/plugins/replay">replay</a></strong> replays a mission by injecting the data at the client level. Makes it a very friendly tool to code/test/debug when you can't fly.</p></li>
+<li><p><strong><a href="plugins/pilot">pilot</a></strong> to control the drone remotely using the keyboard. Based on <a href="https://github.com/functino/drone-browser">drone-browser</a>.</p></li>
 </ul>
 
-<h2 id="plugins">Additional plugins</h2>
-
-<p>If you have written your own webflight plugins, please add them to this list by editing this page.</p>
-
-<ul>
-    <li><p><strong><a href="https://github.com/eschnou/webflight-copterface/">copterface</a></strong> detect faces and track them by rotating the drone. A port of the <a href="https://github.com/paulhayes/copterface">copterface</a> project to the webflight environment.</p></li>
-    <li><p><strong><a href="https://github.com/wiseman/webflight-traffic/">traffic</a></strong> Air traffic overlay plugin for ardrone-webflight that uses ADS-B data.</p></li>
-    <li><p><strong><a href="https://github.com/wiseman/webflight-gamepad/">gamepad</a></strong> controls the drone with a gamepad for much smoother flights.</p></li>
-</ul>
-
-
-<h2 id="install">Install</h2>
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
 
 <p>WebFlight requires a recent nodejs (built and tested with node &gt; 0.10) as well as
 <a href="https://npmjs.org/">npm</a> and <a href="http://bower.io/">bower</a> for dependency management.</p>
@@ -73,7 +57,8 @@ npm install
 bower install
 </code></pre>
 
-<h2>Usage</h2>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
 <ol>
 <li>Copy the config.js.sample to config.js and edit to select your plugins</li>
@@ -83,8 +68,6 @@ bower install
 <li>Point your browser to http://localhost:3000/</li>
 </ol>
 
-<h2>Remote control</h2>
-
 <p>If you have enabled the <strong>pilot</strong> plugin, you can fly the drone with the following keys. Yes, 
 these are azerty bindings :-) If you need qwerty ones, just hack the plugin. I'll need to find 
 a way to provide custome configuration etc.</p>
@@ -92,53 +75,26 @@ a way to provide custome configuration etc.</p>
 <p>Use <code>Z, S, Q, D</code> to move front, back and sideways. Use your <code>cursors</code> to go up/down or turn 
 clockwise/counter clockwise. Use <code>t</code> to takeoff and <code>l</code> for landing.</p>
 
-<h2>Adding your own plugin</h2>
+<h2>
+<a id="adding-your-own-plugin" class="anchor" href="#adding-your-own-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adding your own plugin</h2>
 
 <p>There is no tutorial yet, in the meanwhile, just have a look at the built in plugins, 
 it is faily straightforward. </p>
 
-<h2>Support</h2>
+<p>I would like to maintain a list of user plugins. If you hack something, please let me know
+and I'll add you to the list.</p>
 
-<p>If you encounter issues, please add them to the <a href="https://github.com/eschnou/ardrone-webflight/issues">issue tracker</a>. You can find
-me on twitter (<a href="http://twitter.com/eschnou">@eschnou</a>) or on the #nodecopter IRC channel 
-on #freenode.
-
-<h2>Thanks</h2>
+<h2>
+<a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thanks</h2>
 
 <p>This work is based on the integration of <a href="https://github.com/bkw/nodecopter-cockpit">nodecopter-cockpit</a> 
-and <a href="https://github.com/functino/drone-browser">drone-browser</a>, refactored in a plugin architecture.
-Thanks to <a href="https://github.com/bkw">@bkw</a> and <a href="https://github.com/functino">@functino</a> for sharing!</p>
-
-</p>
+and <a href="https://github.com/functino/drone-browser">drone-browser</a>, refactored in a plugin architecture.</p>
 
 <p>Also a big thank you to <a href="https://github.com/felixge">@felixge</a> for his <a href="https://github.com/felixge/node-ar-drone">node-ar-drone</a> library 
 which pushed me into buying a drone and become crazy about these little flying robots!</p>
 
-<h2>Donate</h2>
-
-<p>If you like this project, please consider donating. The less time I need to work, the more I can spend on open source projects :-)</p>
-<div style="font-size:16px;margin:0 auto;width:300px" class="blockchain-btn"
-     data-address="13q2eVG8KkmsFqGHqDWbjHeq3qicxi4rjh"
-     data-shared="false">
-    <div class="blockchain stage-begin">
-        <img src="https://blockchain.info//Resources/buttons/donate_64.png"/>
-    </div>
-    <div class="blockchain stage-loading" style="text-align:center">
-        <img src="https://blockchain.info//Resources/loading-large.gif"/>
-    </div>
-    <div class="blockchain stage-ready">
-         <p align="center">Please Donate To Bitcoin Address: <b>[[address]]</b></p>
-         <p align="center" class="qr-code"></p>
-    </div>
-    <div class="blockchain stage-paid">
-         Donation of <b>[[value]] BTC</b> Received. Thank You.
-    </div>
-    <div class="blockchain stage-error">
-        <font color="red">[[error]]</font>
-    </div>
-</div>
-
-<h2>License</h2>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
 <p>The MIT License</p>
 
@@ -161,24 +117,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</p>
-      </section>
-    </div>
 
-    <!-- Piwik -->
-    <script type="text/javascript">
-      var _paq = _paq || [];
-      _paq.push(["trackPageView"]);
-      _paq.push(["enableLinkTracking"]);
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/cnpcshangbo/ardrone-webflight">AR.Drone WebFlight</a> is maintained by <a href="https://github.com/cnpcshangbo">cnpcshangbo</a>.</span>
 
-      (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.eschnou.com/";
-        _paq.push(["setTrackerUrl", u+"piwik.php"]);
-        _paq.push(["setSiteId", "4"]);
-        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-    <!-- End Piwik Code -->
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-3039760-14");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
 
   </body>
 </html>
