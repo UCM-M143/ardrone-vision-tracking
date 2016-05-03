@@ -100,11 +100,12 @@ it is faily straightforward.
 
 ## Thanks
 
-This work is based on the integration of [nodecopter-cockpit](https://github.com/bkw/nodecopter-cockpit)
+This work is based on [@eschnou's integration](http://eschnou.github.io/ardrone-webflight/) of [nodecopter-cockpit](https://github.com/bkw/nodecopter-cockpit)
 and [drone-browser](https://github.com/functino/drone-browser), refactored in a plugin architecture.
 Thanks to [@bkw](https://github.com/bkw/) and [@functino](https://github.com/functino) for sharing! Also
 a big thank you to [@felixge](https://github.com/felixge) for his [node-ar-drone](https://github.com/felixge/node-ar-drone) library
 which pushed me into buying a drone and become crazy about these little flying robots!
+Thanks to [@bkw](https://github.com/bkw/) for the project [webflight-tracker plugin](https://github.com/bkw/webflight-tracker)!
 
 ## License
 
